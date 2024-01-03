@@ -8,6 +8,7 @@ export const addToOrder = async (bookDetails) => {
     if(!cartItems){
       throw new Error("no cart items")
     }
+    cartItems.items = [];
     const address = await Address.findOne({user_id: bookDetails.user_id});
     if(!address){
       throw new Error("no address found ")
